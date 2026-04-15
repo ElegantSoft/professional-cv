@@ -3,340 +3,498 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <style>
-      * {
-        font-family: "Open Sans", sans-serif;
-      }
-      body {
-        margin-left: 50px;
-        margin-right: 50px;
-      }
-      .header {
-        text-align: center;
-        border-bottom: 1px solid #999;
+      *,
+      *::before,
+      *::after {
         margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
-      .header h3 {
-        color: #666;
-        line-height: 13px;
-      }
-      .content {
-        padding-left: 10px;
-      }
-      .content div {
-        margin-bottom: 20px;
-      }
-      .list li {
-        list-style: none;
-      }
-      /* .inline {
-        display: flex;
-      } */
-      .inline li {
-        display: inline;
-        padding: 5px 10px;
-        /* color: #2196f3; */
 
-        line-height: 45px;
+      body {
+        font-family: "Inter", sans-serif;
+        color: #1a1a2e;
+        background: #f0f0f3;
+        line-height: 1.6;
       }
-      .inline li::after {
-        content: ",";
+
+      .cv-container {
+        max-width: 900px;
+        margin: 40px auto;
+        background: #fff;
+        overflow: hidden;
       }
-      .content h2 {
-        color: #000;
-        font-weight: bolder;
+
+      .header {
+        background-color: #1a1a2e;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color: #fff;
+        padding: 20px 36px;
+        display: flex;
+        align-items: center;
+        gap: 24px;
       }
-      .work {
-        /* margin-left: 5px; */
+
+      .profile-photo {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #4a4a6a;
+        flex-shrink: 0;
+      }
+
+      .header-info h1 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        margin-bottom: 2px;
+      }
+
+      .header-info .tagline {
+        font-size: 0.85rem;
+        font-weight: 300;
+        color: #b0b0cc;
+        margin-bottom: 8px;
+      }
+
+      .contact-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 12px;
+        font-size: 0.75rem;
+      }
+
+      .contact-row a {
+        color: #c0c0dd;
+        text-decoration: none;
+      }
+
+      .contact-row a:hover {
         text-decoration: underline;
       }
-      .links a {
-        font-size: large;
+
+      .contact-row .sep {
+        color: #555580;
       }
-      a {
-        text-decoration: underline;
-        color: #2196f3;
+
+      .contact-row .location {
+        color: #c0c0dd;
       }
-      * {
-        margin-top: 10px;
+
+      .body-content {
+        padding: 20px 36px 28px;
+      }
+
+      .section {
+        margin-bottom: 18px;
+      }
+
+      .section:last-child {
+        margin-bottom: 0;
+      }
+
+      .section-title {
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #1a1a2e;
+        border-bottom: 2px solid #1a1a2e;
+        padding-bottom: 4px;
         margin-bottom: 10px;
       }
+
+      .summary p {
+        font-size: 0.82rem;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      .experience-item {
+        margin-bottom: 12px;
+        padding-left: 14px;
+        border-left: 3px solid #d0d0d0;
+      }
+
+      .experience-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .exp-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+
+      .exp-role {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #1a1a2e;
+      }
+
+      .exp-date {
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: #888;
+        white-space: nowrap;
+      }
+
+      .exp-company {
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: #0f3460;
+        margin-top: 1px;
+      }
+
+      .exp-company a {
+        color: #0f3460;
+        text-decoration: underline;
+      }
+
+      .exp-desc {
+        font-size: 0.78rem;
+        color: #555;
+        margin-top: 2px;
+        line-height: 1.5;
+      }
+
+      .skills-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .skill-tag {
+        background-color: #eef1f8;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color: #1a1a2e;
+        font-size: 0.75rem;
+        font-weight: 500;
+        padding: 3px 10px;
+        border: 1px solid #ccd3e4;
+      }
+
+      .two-col {
+        display: flex;
+        gap: 40px;
+      }
+
+      .two-col > div {
+        flex: 1;
+      }
+
+      .media-item {
+        margin-bottom: 10px;
+        padding-left: 14px;
+        border-left: 3px solid #d0d0d0;
+      }
+
+      .media-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .media-type {
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        color: #888;
+      }
+
+      .media-title {
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: #1a1a2e;
+      }
+
+      .media-title a {
+        color: #0f3460;
+        text-decoration: underline;
+      }
+
+      .media-channel {
+        font-size: 0.75rem;
+        color: #555;
+      }
+
+      .education-item p,
+      .language-item p {
+        font-size: 0.8rem;
+        color: #333;
+      }
+
+      .education-item .label,
+      .language-item .label {
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        color: #888;
+        margin-bottom: 1px;
+      }
+
+      @media print {
+        body {
+          background: #fff;
+          margin: 0;
+          line-height: 1.4;
+        }
+        .cv-container {
+          margin: 0;
+          max-width: 100%;
+        }
+        .header {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+          padding: 16px 30px;
+        }
+        .profile-photo {
+          width: 80px;
+          height: 80px;
+        }
+        .body-content {
+          padding: 16px 30px 20px;
+        }
+        .section {
+          margin-bottom: 14px;
+        }
+        .skill-tag {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .experience-item {
+          break-inside: avoid;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .header {
+          flex-direction: column;
+          text-align: center;
+          padding: 28px 24px;
+        }
+        .contact-row {
+          justify-content: center;
+        }
+        .body-content {
+          padding: 24px 24px 32px;
+        }
+        .two-col {
+          flex-direction: column;
+          gap: 16px;
+        }
+        .exp-header {
+          flex-direction: column;
+        }
+      }
     </style>
-    <title>Abanoub Istfanous</title>
+    <title>Abanoub Istfanous - CV</title>
   </head>
   <body>
-    <div class="header">
-      <h2>Abanoub Istfanous</h2>
-      <h3>Location: 6 of October - Giza - Egypt</h3>
-      <h3>Phone: <a href="tel:+201030520231">+201030520231</a></h3>
-      <h3>
-        Email:
-        <a href="mailto:abanoub10.istfanous@gmail.com"
-          >abanoub10.istfanous@gmail.com</a
-        >
-      </h3>
-      <h3>
-        LinkedIn:
-        <a href="https://www.linkedin.com/in/abanoub-istfanous-122421196/"
-          >Abanoub Istfanous</a
-        >
-      </h3>
-      <h3>Github: <a href="https://github.com/ElegantSoft">Github</a></h3>
-    </div>
-    <div class="content">
-      <h2>Professional Summary:</h2>
-      <p>
-        I am a senior software engineer and CEO in e-commerce websites, I am frameworks and technology
-        independent, I keep my skills updated and learning Modern technologies,
-        I am a general software engineer with experience in backend development,
-        front end, mobile applications in various languages and technologies.
-      </p>
-      <h2>Work Experience:</h2>
-      <div>
-        <ul class="list">
-          <li>
-            ILine 2021-Jan to Till now CEO of iline-eg.com e-commerce store
-          </li>
-          <li>
-            Yoga Crystals LTD 2021 CEO of UK based company
-            <a href="https://uk.companiesdb.net/companies/yoga-crystals-ltd/"
-              >Link On company house</a
+    <div class="cv-container">
+      <!-- HEADER -->
+      <div class="header">
+        <img
+          class="profile-photo"
+          src="image.png"
+          alt="Abanoub Istfanous"
+        />
+        <div class="header-info">
+          <h1>Abanoub Istfanous</h1>
+          <p class="tagline">
+            Founder &amp; CTO &bull; E-Commerce &amp; SaaS Entrepreneur
+          </p>
+          <div class="contact-row">
+            <a href="tel:+201508766687">+</a>
+            <span class="sep">|</span>
+            <a href="mailto:bob@abanoub.me">bob@abanoub.me</a>
+            <span class="sep">|</span>
+            <a
+              href="https://www.linkedin.com/in/abanoub-istfanous-122421196/"
+              target="_blank"
+              >LinkedIn</a
             >
-          </li>
-          <li></li>
-          <li>
-            Evada 2020-May to 2020-Aug Team Leader for mobile Team -
-            react-native
-          </li>
-          <li>
-            Nezam 2020 till now Senior Software Engineer - react-native and
-            flutter
-          </li>
-          <li>Elegantsoft 2019 - 2020 Team Leader</li>
-          <li>
-            Qarewell - cannamedcards an USA medical company 2019 - 2020 Senior
-            software engineer (ReactJS - Nodejs NestJS)
-          </li>
-          <li>
-            Elegantsoft 2018 - 2019 Software Engineer - Fullstack react-native
-            and node.js
-          </li>
-          <li>Freelancer 2016 - 2018 Fullstack developer</li>
-        </ul>
-      </div>
-      <h2>Some of my work:</h2>
-      <h3 class="work">Now I am specialist in e-commerce websites</h3>
-      <p>
-        I have a successful businesses in egypt and uk with more than 3,000,000$
-        sales, And that didn't stopped me from love and practice my passionate
-        in programing.
-      </p>
-      <p>
-        I founded and manage these companies with my own at businesses layer and
-        programming layer. I use my brain and skills to get high income in
-        e-commerce but my passion and heart still with programming
-      </p>
-      <h3>Technology used:</h3>
-      <ul class="list inline">
-        <li>iline-eg.com</li>
-        <li>yogacrystals.co.uk</li>
-      </ul>
-      <div class="links">
-        <a href="https://bashqash.com">Website</a>
-        <a
-          href="https://play.google.com/store/apps/details?id=com.bashqash.enduser"
-          >Android</a
-        >
-        <a href="https://apps.apple.com/us/app/id1523259538">IOS</a>
-      </div>
-      <h3 class="work">Bashqash APP</h3>
-      <p>A financial App (Payment Method app)</p>
-      <h3>Technology used:</h3>
-      <ul class="list inline">
-        <li>Nodejs</li>
-        <li>Postgresql</li>
-        <li>ReactJS in Website</li>
-        <li>React Native in end-user app</li>
-        <li>Flutter in POS app</li>
-        <li>Java (Print invoice with printer in POS)</li>
-        <li>NFC and QR technologies</li>
-      </ul>
-      <div class="links">
-        <a href="https://bashqash.com">Website</a>
-        <a
-          href="https://play.google.com/store/apps/details?id=com.bashqash.enduser"
-          >Android</a
-        >
-        <a href="https://apps.apple.com/us/app/id1523259538">IOS</a>
+            <span class="sep">|</span>
+            <a href="https://github.com/ElegantSoft" target="_blank">GitHub</a>
+            <span class="sep">|</span>
+            <a href="https://www.facebook.com/userprofile11113060998.htmll" target="_blank">Facebook</a>
+            <span class="sep">|</span>
+            <span class="location">6th of October, Giza, Egypt</span>
+          </div>
+        </div>
       </div>
 
-      <h3 class="work">Batikh Store</h3>
-      <p>E-Commerce Website and Mobile Application</p>
-      <h3>Technology I used:</h3>
-      <ul class="list inline">
-        <li>Nodejs</li>
-        <li>NestJS</li>
-        <li>MongoDB</li>
-        <li>ReactJS in Website</li>
-        <li>Vue in admin panel</li>
-        <li>AWS</li>
-        <li>react-native</li>
-        <li>Java (Payment integration in android)</li>
-        <li>Objective-C (Payment integration in IOS)</li>
-      </ul>
-      <div class="links">
-        <a href="https://batikh.net">Website</a>
-      </div>
+      <!-- BODY -->
+      <div class="body-content">
+        <!-- SUMMARY -->
+        <div class="section summary">
+          <h2 class="section-title">Professional Summary</h2>
+          <p>
+            One of the most influential figures in e-commerce, software
+            engineering, and SaaS in Egypt. Founder and CTO of
+            <strong>EasyOrders</strong>, the largest e-commerce
+            store-building platform in the country, serving over
+            <strong>250,000 Egyptian merchants</strong> and processing more
+            than <strong>300,000 orders daily</strong>. Serial SaaS
+            entrepreneur behind multiple platforms including
+            <strong>DaqiqERP</strong>, <strong>EasyConfirm</strong>, and
+            <strong>EasyTakhzeen</strong> — combining deep technical expertise
+            with proven business acumen to build products that power the
+            backbone of Egyptian e-commerce.
+          </p>
+        </div>
 
-      <h3 class="work">Wetop store</h3>
-      <p>E-Commerce Website</p>
-      <h3>Technology I used:</h3>
-      <ul class="list inline">
-        <li>Nodejs</li>
-        <li>MongoDB</li>
-        <li>Vue in admin panel</li>
-        <li>AWS</li>
-        <li>ReactJS</li>
-        <li>NextJS for SSR</li>
-        <li>Typescript</li>
-      </ul>
-      <div class="links">
-        <a href="https://wetop.com.sa">Website</a>
-      </div>
-      <h3 class="work">Webaystore</h3>
-      <p>E-Commerce Application</p>
-      <h3>Technology I used:</h3>
-      <ul class="list inline">
-        <li>Nodejs</li>
-        <li>MongoDB</li>
-        <li>Vue in admin panel</li>
-        <li>AWS</li>
-        <li>react-native</li>
-        <li>Java</li>
-        <li>Objective-C</li>
-      </ul>
-      <p style="text-decoration: underline">
-        Note: if your location not in SA you can't register because you need
-        verify phone number
-      </p>
-      <p>USE: testuser, 1234567 to login</p>
+        <!-- WORK EXPERIENCE -->
+        <div class="section">
+          <h2 class="section-title">Work Experience</h2>
 
-      <div class="links">
-        <a href="https://play.google.com/store/apps/details?id=com.laptop"
-          >Android</a
-        >
-        <a href="https://apps.apple.com/sa/app/id1487385986">IOS</a>
-      </div>
-      <h3 class="work">Saafka</h3>
-      <p>This is a platform for freelancing like mostaql and fiver</p>
-      <h3>Technology I used:</h3>
-      <ul class="list inline">
-        <li>php</li>
-        <li>Laravel</li>
-        <li>MySQL</li>
-        <li>VueJS</li>
-      </ul>
+          <div class="experience-item">
+            <div class="exp-header">
+              <span class="exp-role">Founder &amp; CTO</span>
+              <span class="exp-date">2022 &mdash; Present</span>
+            </div>
+            <div class="exp-company">
+              <a href="https://easyorders.eg" target="_blank">EasyOrders</a>
+              &mdash; easyorders.eg
+            </div>
+            <p class="exp-desc">
+              Egypt's largest e-commerce store-building platform with over
+              250,000 registered merchants and 300,000+ orders processed daily.
+              Built and scaled the entire technology stack and business
+              operations from the ground up.
+            </p>
+          </div>
 
-      <h3 class="work">Mazad Online</h3>
-      <p>This a site with all features if Flippa.com</p>
-      <h5>Technology I used:</h5>
-      <ul class="list inline">
-        <li>NodeJS</li>
-        <li>ReactJS</li>
-        <li>NextJS for SSR</li>
-        <li>MongoDB</li>
-        <li>ExpressJS</li>
-        <li>
-          web-scrapping with node to get app details from google play and app
-          store
-        </li>
-      </ul>
-      <div class="links">
-        <a href="http://mazad-online.herokuapp.com">Mazad-Online</a>
-      </div>
+          <div class="experience-item">
+            <div class="exp-header">
+              <span class="exp-role">Founder</span>
+              <span class="exp-date">Present</span>
+            </div>
+            <div class="exp-company">
+              <a href="https://easyconfirm.net" target="_blank">EasyConfirm</a>
+              &mdash; easyconfirm.net
+            </div>
+            <p class="exp-desc">
+              A specialized platform for WhatsApp automation and e-commerce
+              services, enabling merchants to confirm orders, engage customers,
+              and streamline communication through WhatsApp at scale.
+            </p>
+          </div>
 
-      <h3 class="work">Some open-source projects and packages</h3>
-      <div class="links inline">
-        <a href="https://github.com/ElegantSoft/snake-game"
-          >Snake game in rust</a
-        >
-        <p>
-          A simple snake game in rust because I believe in rust will be the
-          future and I want to be ready when rust taking over c++ in market
-        </p>
-        <a
-          href="https://github.com/ElegantSoft/reseach-bypass-plagiarism-backend"
-          >plagiarism bypass AI python</a
-        >
-        <a
-          href="https://github.com/ElegantSoft/reseach-bypass-plagiarism-frontend"
-          >plagiarism bypass AI front-end react</a
-        >
-        <p>
-          An AI solution to convert english paragraphs into their synonymous to
-          bypass plagiarism detectors
-        </p>
-        <a href="https://github.com/ElegantSoft/elegant-ts">Elegant-TS</a>
-        <p>
-          This package for node and typescript helps me to just extends
-          controller and router to inherit REST apis CRUD operations in just 4
-          lines of code
-        </p>
-        <a href="https://www.npmjs.com/package/elegant-generator-ts"
-          >Elegant-Generator</a
-        >
-        <p>
-          This package for node and typescript helps me to just extends
-          controller and router to inherit REST apis CRUD operations in just 4
-          lines of code A cli tool to generate MVC and admin panel for any model
-          For details please see
-        </p>
-        <p>
-          WATCH:
-          <a href="https://www.youtube.com/watch?v=hBTflrzC80A"> youtube</a>
-        </p>
+          <div class="experience-item">
+            <div class="exp-header">
+              <span class="exp-role">Founder</span>
+              <span class="exp-date">Present</span>
+            </div>
+            <div class="exp-company">
+              <a href="https://www.easytakhzeen.net" target="_blank"
+                >EasyTakhzeen</a
+              >
+              &mdash; easytakhzeen.net
+            </div>
+            <p class="exp-desc">
+              A fulfillment and logistics operations platform in Egypt,
+              providing end-to-end warehousing, inventory management, order
+              processing, and shipping services for e-commerce merchants.
+            </p>
+          </div>
+
+          <div class="experience-item">
+            <div class="exp-header">
+              <span class="exp-role">Founder</span>
+              <span class="exp-date">Present</span>
+            </div>
+            <div class="exp-company">
+              <a href="https://daqiqerp.com" target="_blank">DaqiqERP</a>
+              &mdash; daqiqerp.com
+            </div>
+            <p class="exp-desc">
+              A SaaS platform offering a comprehensive order management system
+              and sales operations suite for e-commerce businesses, streamlining
+              the entire selling workflow from order intake to fulfillment.
+            </p>
+          </div>
+
+          <div class="experience-item">
+            <div class="exp-header">
+              <span class="exp-role">Software Engineer</span>
+              <span class="exp-date">2016 &mdash; 2022</span>
+            </div>
+            <div class="exp-company">Various Companies</div>
+            <p class="exp-desc">
+              Worked as a full-stack software engineer across multiple
+              organizations, building web and mobile applications using
+              Node.js, React, React Native, Flutter, and other modern
+              technologies before transitioning into entrepreneurship.
+            </p>
+          </div>
+        </div>
+
+        <!-- SKILLS -->
+        <div class="section">
+          <h2 class="section-title">Technical Skills</h2>
+          <div class="skills-grid">
+            <span class="skill-tag">Software Architecture</span>
+            <span class="skill-tag">Business Development</span>
+            <span class="skill-tag">SaaS Product Development</span>
+            <span class="skill-tag">Scalable Infrastructure</span>
+          </div>
+        </div>
+
+        <!-- MEDIA & PODCASTS -->
+        <div class="section">
+          <h2 class="section-title">Media Appearances</h2>
+
+          <div class="media-item">
+            <span class="media-type">TV</span>
+            <p class="media-title">
+              <a href="https://www.youtube.com/watch?v=cdEABgip1aY" target="_blank">Smart Talk — E-Commerce Opens New Horizons for Youth in the Digital Age</a>
+            </p>
+            <p class="media-channel">TeN TV</p>
+          </div>
+
+          <div class="media-item">
+            <span class="media-type">Podcast</span>
+            <p class="media-title">
+              <a href="https://www.youtube.com/watch?v=ADNSSPwqImg" target="_blank">A Physical Therapist Who Dominated Egypt's E-Commerce Platform Market</a>
+            </p>
+            <p class="media-channel">5 Business</p>
+          </div>
+
+          <div class="media-item">
+            <span class="media-type">Podcast</span>
+            <p class="media-title">
+              <a href="https://www.youtube.com/watch?v=u-0--8kjJqs" target="_blank">Secrets of E-Commerce &amp; Affiliate Marketing</a>
+            </p>
+            <p class="media-channel">Bassem Podcast</p>
+          </div>
+        </div>
+
+        <!-- EDUCATION & LANGUAGES -->
+        <div class="section">
+          <h2 class="section-title">Education &amp; Languages</h2>
+          <div class="two-col">
+            <div class="education-item">
+              <p class="label">Education</p>
+              <p>Faculty of Physical Therapy — October 6 University</p>
+            </div>
+            <div class="language-item">
+              <p class="label">Languages</p>
+              <p>Arabic (Native) &bull; English (Fluent)</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <h3 class="work">proficiency SKills</h3>
-      <h5>Skill Level: Professional</h5>
-      <ul class="list inline">
-        <li>NodeJS</li>
-        <li>Typescript</li>
-        <li>ReactJS</li>
-        <li>MongoDB</li>
-        <li>Postgresql</li>
-        <li>ReactNative</li>
-        <li>dart</li>
-        <li>flutter</li>
-        <li>Vue</li>
-        <li>php</li>
-        <li>Laravel</li>
-        <li>socket.io</li>
-        <li>AWS</li>
-        <li>Algorithm</li>
-        <li>data structure</li>
-      </ul>
-      <h5>Skill Level: Intermediate</h5>
-      <ul class="list inline">
-        <li>python</li>
-        <li>kotlin</li>
-        <li>java</li>
-        <li>spring boot</li>
-        <li>c++</li>
-        <li>Rust</li>
-        <li>Nginx</li>
-      </ul>
-      <h3 class="work">Education:</h3>
-      <p>Faculty of Physical Therapy October 6 University</p>
-      <h3 class="work">Languages</h3>
-      <ul class="list inline">
-        <li>Arabic: Native</li>
-        <li>English: Fluent</li>
-      </ul>
     </div>
   </body>
 </html>
